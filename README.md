@@ -71,3 +71,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 features installed
 yarn add bootstrap -S
 yarn add react-router-dom@4.3.1 -S
+yarn add redux react-redux redux-thunk axios
