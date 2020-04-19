@@ -23,13 +23,13 @@ export default function (state = initialState, action) {
         project_task: action.payload,
       };
     }
-    case DELETE_PROJECT_TASK: {
+    case DELETE_PROJECT_TASK:
       return {
         ...state,
-
-        // TO DO
+        project_tasks: state.project_tasks.filter(
+          (project_task) => project_task.projectSequence !== action.paylaod
+        ),
       };
-    }
     default:
       return state;
   }
