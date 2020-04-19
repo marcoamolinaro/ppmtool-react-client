@@ -18,9 +18,13 @@ class Backlog extends Component {
       status = tasks[i].props.project_task.status;
       if (status === "TO_DO") {
         todoItems.push(tasks[i]);
-      } else if (status === "IN_PROGRESS") {
+      }
+
+      if (status === "IN_PROGRESS") {
         inProgressItems.push(tasks[i]);
-      } else {
+      }
+
+      if (status === "DONE") {
         doneItems.push(tasks[i]);
       }
     }
