@@ -8,6 +8,10 @@ import UpdateProject from "./components/Project/UpdateProject";
 import ProjectBoard from "./components/ProjectBoard/ProjectBoard";
 import AddProjectTask from "./components/ProjectBoard/ProjectTasks/AddProjectTask";
 import UpdateProjectTask from "./components/ProjectBoard/ProjectTasks/UpdateProjectTask";
+import Register from "./components/UserManagement/Register";
+import Landing from "./components/Layout/Landing";
+import Login from "./components/UserManagement/Login";
+
 import store from "./store";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -18,6 +22,17 @@ function App() {
       <Router>
         <div className="App">
           <Header />
+          {
+            // Public Routes
+          }
+
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/login" component={Login} />
+
+          {
+            // Private Routes
+          }
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/addProject" component={AddProject} />
           <Route exact path="/updateProject/:id" component={UpdateProject} />
