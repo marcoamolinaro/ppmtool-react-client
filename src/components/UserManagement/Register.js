@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { createNewUser } from "../../actions/securityActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import classnames  from "classnames";
+import classnames from "classnames";
 
 class Register extends Component {
   constructor() {
@@ -56,7 +56,7 @@ class Register extends Component {
                   <input
                     type="text"
                     className={classnames("form-control form-control-lg", {
-                      "is-invalid": errors.fullName
+                      "is-invalid": errors.fullName,
                     })}
                     placeholder="Full Name"
                     name="fullName"
@@ -71,7 +71,7 @@ class Register extends Component {
                   <input
                     type="text"
                     className={classnames("form-control form-control-lg", {
-                      "is-invalid": errors.username
+                      "is-invalid": errors.username,
                     })}
                     placeholder="Email Address (username)"
                     name="username"
@@ -86,7 +86,7 @@ class Register extends Component {
                   <input
                     type="password"
                     className={classnames("form-control form-control-lg", {
-                      "is-invalid": errors.password
+                      "is-invalid": errors.password,
                     })}
                     placeholder="Password"
                     name="password"
@@ -101,7 +101,7 @@ class Register extends Component {
                   <input
                     type="password"
                     className={classnames("form-control form-control-lg", {
-                      "is-invalid": errors.confirmPassword
+                      "is-invalid": errors.confirmPassword,
                     })}
                     placeholder="Confirm Password"
                     name="confirmPassword"
@@ -109,7 +109,9 @@ class Register extends Component {
                     onChange={this.onChange}
                   />
                   {errors.confirmPassword && (
-                    <div className="invalid-feedback">{errors.confirmPassword}</div>
+                    <div className="invalid-feedback">
+                      {errors.confirmPassword}
+                    </div>
                   )}
                 </div>
                 <input type="submit" className="btn btn-info btn-block mt-4" />
