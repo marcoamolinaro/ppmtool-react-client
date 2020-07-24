@@ -3,6 +3,7 @@ import { createNewUser } from "../../actions/securityActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import classnames from "classnames";
+import Landing from "../Layout/Landing";
 
 class Register extends Component {
   constructor() {
@@ -17,6 +18,12 @@ class Register extends Component {
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.security.validToken) {
+      this.props.history.push("/dashboard");
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -124,13 +131,19 @@ class Register extends Component {
   }
 }
 
+Landing.propTypes = {
+  security: PropTypes.object.isRequired,
+};
+
 Register.propTypes = {
   createNewUser: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
+  security: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   errors: state.errors,
+  security: state.security,
 });
 
 export default connect(mapStateToProps, { createNewUser })(Register);
